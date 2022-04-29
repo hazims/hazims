@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Swiss Star</title>
+    <link rel="shortcut icon" type="image/png" href="img/17_SwissStar.png" alt="logo"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+          integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+          integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="wickedpicker/dist/wickedpicker.min.css">
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header id="header">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid mt-4">
+                <a class="navbar-brand" href="index.html">
+                    <h3>SWISS STAR</h3>
+                    <p>WELCOME HOME</p>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav w-100">
+
+                        <li class="nav-item ms-lg-auto">
+                            <a class="nav-link" href="apartments.html">Apartments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Über uns</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Kontakt</a>
+                        </li>
+                        <li class="nav-item ms-lg-auto">
+                            <a id="btn-login" data-bs-toggle="modal" href="#tab-login"
+                               data-bs-target="#modal-login-register"
+                               class="nav-link">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="btn-register" data-bs-toggle="modal"
+                               href="#tab-registrieren"
+                               data-bs-target="#modal-login-register"
+                               class="nav-link">Registrieren</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<section class="container mt-150" id="buchungen">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="favoriten">
+                <p style="padding-left: 10px;"><img src="img/25vector.png" alt="">Buchungen</p>
+                <p><img src="img/37_Vector.png" alt=""><a class="text-decoration-none " style="color: #023E8A;" href="dashboard_user.html">Favoriten</a></p>
+                <p><img src="img/37_Vector.png" alt=""><a class="text-decoration-none " style="color: #023E8A;" href="einstellungen.html">Einstellungen</a> </p>
+                <p><img src="img/37_Vector.png" alt=""><a class="text-decoration-none " style="color: #023E8A;" href="checkout.html">Zahlungsinformationen</a></p>
+                <p style="padding-left: 35px;">Ausloggen</p>
+            </div>
+            <div class="empfohlen">
+                <h1>Empfohlen für dich</h1>
+                <div class="apartment">
+                    <div class="apartment_1">
+                        <div>
+                            <h3>Apartment 1</h3>
+                            <p style="margin-bottom: 0;">Adresse, PLZ, Ort</p>
+                        </div>
+                        <div>
+                            <div class="d-flex justify-content-center box">
+                                <img class="w-50 align-self-center" src="img/35_Pfad%204.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="apartment_1">
+                        <div>
+                            <h3>Apartment 1</h3>
+                            <p style="margin-bottom: 0;">Adresse, PLZ, Ort</p>
+                        </div>
+                        <div>
+                            <div class="d-flex justify-content-center box">
+                                <img class="align-self-center" src="img/35_Pfad%204.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="apartment_1">
+                        <div>
+                            <h3>Apartment 1</h3>
+                            <p style="margin-bottom: 0;">Adresse, PLZ, Ort</p>
+                        </div>
+                        <div>
+                            <div class="d-flex justify-content-center box">
+                                <img class="w-50 align-self-center" src="img/35_Pfad%204.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h1 class="buch_title"> Deine Buchungen</h1>
+            <div class="buchungsnummer">
+                <h1 style="margin-bottom: 0;">Buchungsnummer #54862</h1>
+                <p style="color:#D8D8D8; font-size: 25px;"><img src="img/36_Pfad%2085.png" alt=""
+                                                                style="padding-right: 15px;">Swiss Star Tower</p>
+                <p style="color: #00A553;">AKZEPTIERT</p>
+                <p style="color: #00A553; margin-top: 30px;">10.02.2022 - 15.02.2022</p>
+            </div>
+            <div class="buchungsnummer_1">
+                <h1 style="margin-bottom: 0;">Buchungsnummer #54862</h1>
+                <p style="color:#D8D8D8; font-size: 25px;"><img src="img/36_Pfad%2085.png" alt=""
+                                                                style="padding-right: 15px;">Swiss Star Tower</p>
+                <p style="color: #C10000;">AKZEPTIERT</p>
+                <p style="color: #C10000; margin-top: 30px;">10.02.2022 - 15.02.2022</p>
+            </div>
+            <div class="buchungsnummer">
+                <h1 style="margin-bottom: 0;">Buchungsnummer #54862</h1>
+                <p style="color:#D8D8D8; font-size: 25px;"><img src="img/36_Pfad%2085.png" alt=""
+                                                                style="padding-right: 15px;">Swiss Star Tower</p>
+                <p style="color: #00A553;">AKZEPTIERT</p>
+                <p style="color: #00A553; margin-top: 30px;">10.02.2022 - 15.02.2022</p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="modal-login-register" tabindex="-1" aria-labelledby="register"
+     aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen px-10-768">
+        <div class="modal-content bg-transparent">
+            <div class="container">
+                <div class="py-4">
+                    <div id="login-register" class="bg-transparent border-0">
+                        <div class="d-flex justify-content-between align-items-center px-4">
+                            <ul class="">
+                                <li><a href="#tab-login">Login</a></li>
+                                <li><a href="#tab-registrieren">Registrieren</a></li>
+                            </ul>
+
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div id="tab-login">
+                            <div class="row border-radius-80 bg_secondary">
+                                <div class="col-lg-6 mt-5 px-4">
+                                    <div class="container">
+                                        <h3>Login</h3>
+                                        <h4>Log dich jetzt ein.</h4>
+                                        <a href="#" class="btn px-0 w-100">
+                                            <div class="d-flex border border-dark border-radius-30 justify-content-center align-items-center py-3">
+                                                <img class="h-75 pe-3" src="img/34_GoogleLogo.png" alt="">
+                                                <p class="mb-0">mit Google anmelden</p>
+                                            </div>
+                                        </a>
+                                        <div class="d-flex justify-content-center align-items-center mb-3 pt-5 pb-5">
+                                            <div class="w-75 ms-0" style="height: 0">
+                                                <div class="border-dark border-0 border-bottom"
+                                                     style="width: 75%"></div>
+                                            </div>
+                                            <div class="w-100"><p class="mb-0 text-center w-100">Anmelden mit E-Mail</p>
+                                            </div>
+                                            <div class="w-75 ms-auto" style="height: 0">
+                                                <div class="border-dark border-0 border-bottom ms-auto"
+                                                     style="width: 75%"></div>
+                                            </div>
+                                        </div>
+
+                                        <form action="">
+                                            <div class="mb-3">
+                                                <label for="email" class="form-label">Email:</label>
+                                                <input type="email"
+                                                       class="form-control border border-dark border-radius-30 justify-content-center align-items-center px-4 py-3"
+                                                       id="email1" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="password" class="form-label">Password:</label>
+                                                <input type="password"
+                                                       class="form-control border border-dark border-radius-30 justify-content-center align-items-center px-4 py-3  "
+                                                       id="password1" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="d-flex justify-content-center">
+                                                <div class="mb-3 form-check w-100">
+                                                    <input type="checkbox" class="form-check-input"
+                                                           style="border-radius: 0"
+                                                           id="check1">
+                                                    <label class="form-check-label" for="check1">Check me out</label>
+                                                </div>
+                                                <a href="#" class="text-end w-100 text-decoration-none">Passwort
+                                                    vergessen</a>
+                                            </div>
+                                            <button type="submit"
+                                                    class="btn bg_primary w-100 color_secondary border-radius-30 my-3 py-3">
+                                                Submit
+                                            </button>
+                                            <div class="d-flex">
+                                                <p class="mb-0 pe-2">Noch keinen Account? </p>
+                                                <a href="#tab-registrieren"> Erstelle jetzt deinen Account</a>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 pe-0 px-0-1199 d-none-992">
+                                    <img class="ps-5 px-0-1199" src="img/33_LoginRegisrierten.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-registrieren">
+                            <div class="row border-radius-80 bg_secondary">
+                                <div class="col-lg-6 mt-5 px-4">
+                                    <div class="container">
+                                        <h3>Jetzt Registrieren</h3>
+                                        <h4>Entdecke jetzt Swiss Star</h4>
+
+                                        <form action="" class="pt-4">
+
+                                            <div class="mb-3">
+                                                <label for="username" class="form-label">Username:</label>
+                                                <input type="text"
+                                                       class="form-control border border-dark border-radius-30 justify-content-center align-items-center px-4 py-3"
+                                                       id="username" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="email" class="form-label">Email:</label>
+                                                <input type="email"
+                                                       class="form-control border border-dark border-radius-30 justify-content-center align-items-center px-4 py-3"
+                                                       id="email" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="password" class="form-label">Password:</label>
+                                                <input type="password"
+                                                       class="form-control border border-dark border-radius-30 justify-content-center align-items-center px-4 py-3  "
+                                                       id="password" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="d-flex justify-content-center">
+                                                <div class="mb-3 form-check w-100">
+                                                    <input type="checkbox" class="form-check-input"
+                                                           style="border-radius: 0"
+                                                           id="exampleCheck1">
+                                                    <label class="form-check-label" for="exampleCheck1">Ich akzeptiere
+                                                        die
+                                                        AGB's</label>
+                                                </div>
+                                            </div>
+
+                                            <a href="#" class="btn px-0 w-100 mb-2">
+                                                <div class="d-flex border border-dark border-radius-30 justify-content-center align-items-center py-3">
+                                                    <img class="h-75 pe-3" src="img/34_GoogleLogo.png" alt="">
+                                                    <p class="mb-0">mit Google anmelden</p>
+                                                </div>
+                                            </a>
+
+                                            <button type="submit"
+                                                    class="btn bg_primary w-100 color_secondary border-radius-30 mt-3 mb-3 py-3">
+                                                Submit
+                                            </button>
+                                            <div class="d-flex">
+                                                <p class="mb-0 pe-2">Noch keinen Account? </p>
+                                                <a href="#tab-login">Login</a>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 pe-0 px-0-1199 d-none-992">
+                                    <img class="ps-5 px-0-1199" src="img/33_LoginRegisrierten.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+<script src="wickedpicker/dist/wickedpicker.min.js"></script>
+
+<script>
+    $(function () {
+        $("#login-register").tabs();
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#login-register').tabs();
+        $("#login-register>div a[href^='#']").click(function () {
+            var index = $($(this).attr("href")).index() - 1
+            $("#login-register").tabs("option", "active", index);
+            return false
+        })
+    })
+
+
+    // $('#modal-login-register').on('show.bs.modal', function (e) {
+    //
+    //     $("#btn-login").click(function () {
+    //         // $("#tab-login").tabs("option", "active", 1);
+    //         // $("#login-register").tabs("option", "active", index);
+    //         $( "#login-register" ).tabs({ active: '#tab_login' });
+    //         // alert('l')
+    //     });
+    //
+    //     $("#btn-register").click(function () {
+    //         // $("#tab-registrieren").tabs("option", "active", 1);
+    //         $( "#login-register" ).tabs({ active: '#tab-registrieren' });
+    //         // alert('r')
+    //     });
+    //
+    // })
+
+</script>
+
+</body>
+</html>

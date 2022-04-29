@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Swiss Star</title>
+    <link rel="shortcut icon" type="image/png" href="img/17_SwissStar.png" alt="logo" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+        integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="wickedpicker/dist/wickedpicker.min.css">
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid mt-4">
+                    <a class="navbar-brand" href="index.html">
+                        <h3>SWISS STAR</h3>
+                     
+                        <p>WELCOME HOME</p>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav w-100">
+
+                            <li class="nav-item ms-lg-auto">
+                                <a class="nav-link" href="apartments.html">Apartments</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Über uns</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">Kontakt</a>
+                            </li>
+
+
+                            <li class="nav-item ms-lg-auto">
+                                <a id="btn-login" data-bs-toggle="modal" href="#tab-login"
+                                   data-bs-target="#modal-login-register"
+                                   class="nav-link">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="btn-register" data-bs-toggle="modal"
+                                   href="#tab-registrieren"
+                                   data-bs-target="#modal-login-register"
+                                   class="nav-link">Registrieren</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section id="deine_favoriten">
+        <div class="container mt-120">
+            <div class="row pt-4">
+                <div class="col-lg-5 pe-4">
+                    <div class="right">
+                        <div class="d-flex box flex-column p-4">
+                            <div class="d-flex align-items-center">
+                                <img class="icon_arrow_right" src="img/24_vector.png" alt="ttt">
+                                <p class="mb-0 ms-4"><a class="text-decoration-none " style="color: #023E8A;"
+                                        href="user _buchungen.html">Buchungen</a></p>
+                            </div>
+                            <div class="d-flex align-items-center ms-3 ps-2 mt-3">
+                                <img class="icon_arrow_right" src="img/25vector.png" alt="ttt">
+                                <p class="mb-0 ms-4"><a class="text-decoration-none " style="color: #023E8A;"
+                                        href="dashboard_user.html">Favoriten</a> </p>
+                            </div>
+                            <div class=" a">
+                                <div class="d-flex mt-3">
+                                    <img class="icon_arrow_right" src="img/24_vector.png" alt="ttt">
+                                    <p class="mb-0 ms-4"><a class="text-decoration-none " style="color: #023E8A;"
+                                            href="einstellungen.html">Einstellungen</a> </p>
+                                </div>
+                                <p class="ms-4 ps-3 mt-3" style="color:#023E8A; font-size:20px;
+                                ">Ausloggen</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="apartments_hotel" class="col-lg-7">
+                    <div class="row">
+                        <div class="col-12 ps-5">
+                            <h3 class="h3">Deine Favoriten</h3>
+                        </div>
+                        <div class="col-md-6 px-15-1199 px-5 mb-5">
+                            <div class="card">
+                                <div class="responsive1">
+                                    <div>
+                                        <div class="img-15 card-img-top">
+                                            <img class="card-img-top" src="img/02_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-115">
+                                            <img class="card-img-top" src="img/03_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-5111">
+                                            <img class="card-img-top" src="img/04_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="star">
+                                    <div>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="p1">5.0</p>
+                                    <p class="p2">(15)</p>
+                                </div>
+                                <div class="card-body pb-0 px-0">
+                                    <div class="px-3">
+                                        <h5 class="card-title">Swiss Star Sihlfeld</h5>
+                                        <p class="card-text">Dubsstrasse 30, 8003 Zürich</p>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/06_m2.png" alt=""> Fläche:
+                                                    130m<sup>2</sup></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/08_Guest.png" alt=""> Gäste:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/07_Bed.png" alt=""> Betten:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/09_WLAN.png" alt=""> WLAN:
+                                                    NEIN</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 pt-4">
+                                        <a href="single_apartment.html" class="btn" type="button"><sub>ab</sub>119
+                                            <sup>CHF</sup></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-15-1199 px-5 mb-5">
+                            <div class="card">
+                                <div class="responsive1">
+                                    <div>
+                                        <div class="img-15 card-img-top">
+                                            <img class="card-img-top" src="img/02_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-115">
+                                            <img class="card-img-top" src="img/03_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-5111">
+                                            <img class="card-img-top" src="img/04_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="star">
+                                    <div>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="p1">5.0</p>
+                                    <p class="p2">(15)</p>
+                                </div>
+                                <div class="card-body pb-0 px-0">
+                                    <div class="px-3">
+                                        <h5 class="card-title">Swiss Star Sihlfeld</h5>
+                                        <p class="card-text">Dubsstrasse 30, 8003 Zürich</p>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/06_m2.png" alt=""> Fläche:
+                                                    130m<sup>2</sup></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/08_Guest.png" alt=""> Gäste:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/07_Bed.png" alt=""> Betten:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/09_WLAN.png" alt=""> WLAN:
+                                                    NEIN</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 pt-4">
+                                        <a href="single_apartment.html" class="btn" type="button"><sub>ab</sub>119
+                                            <sup>CHF</sup></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-15-1199 px-5 mb-5">
+                            <div class="card">
+                                <div class="responsive1">
+                                    <div>
+                                        <div class="img-15 card-img-top">
+                                            <img class="card-img-top" src="img/02_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-115">
+                                            <img class="card-img-top" src="img/03_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-5111">
+                                            <img class="card-img-top" src="img/04_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="star">
+                                    <div>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="p1">5.0</p>
+                                    <p class="p2">(15)</p>
+                                </div>
+                                <div class="card-body pb-0 px-0">
+                                    <div class="px-3">
+                                        <h5 class="card-title">Swiss Star Sihlfeld</h5>
+                                        <p class="card-text">Dubsstrasse 30, 8003 Zürich</p>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/06_m2.png" alt=""> Fläche:
+                                                    130m<sup>2</sup></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/08_Guest.png" alt=""> Gäste:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/07_Bed.png" alt=""> Betten:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/09_WLAN.png" alt=""> WLAN:
+                                                    NEIN</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 pt-4">
+                                        <a href="single_apartment.html" class="btn" type="button"><sub>ab</sub>119
+                                            <sup>CHF</sup></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 px-15-1199 px-5 mb-5">
+                            <div class="card">
+                                <div class="responsive1">
+                                    <div>
+                                        <div class="img-15 card-img-top">
+                                            <img class="card-img-top" src="img/02_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-115">
+                                            <img class="card-img-top" src="img/03_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-5111">
+                                            <img class="card-img-top" src="img/04_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="star">
+                                    <div>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="p1">5.0</p>
+                                    <p class="p2">(15)</p>
+                                </div>
+                                <div class="card-body pb-0 px-0">
+                                    <div class="px-3">
+                                        <h5 class="card-title">Swiss Star Sihlfeld</h5>
+                                        <p class="card-text">Dubsstrasse 30, 8003 Zürich</p>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/06_m2.png" alt=""> Fläche:
+                                                    130m<sup>2</sup></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/08_Guest.png" alt=""> Gäste:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/07_Bed.png" alt=""> Betten:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/09_WLAN.png" alt=""> WLAN:
+                                                    NEIN</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 pt-4">
+                                        <a href="single_apartment.html" class="btn" type="button"><sub>ab</sub>119
+                                            <sup>CHF</sup></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-15-1199 px-5 mb-5">
+                            <div class="card">
+                                <div class="responsive1">
+                                    <div>
+                                        <div class="img-15 card-img-top">
+                                            <img class="card-img-top" src="img/02_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-115">
+                                            <img class="card-img-top" src="img/03_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-5111">
+                                            <img class="card-img-top" src="img/04_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="star">
+                                    <div>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="p1">5.0</p>
+                                    <p class="p2">(15)</p>
+                                </div>
+                                <div class="card-body pb-0 px-0">
+                                    <div class="px-3">
+                                        <h5 class="card-title">Swiss Star Sihlfeld</h5>
+                                        <p class="card-text">Dubsstrasse 30, 8003 Zürich</p>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/06_m2.png" alt=""> Fläche:
+                                                    130m<sup>2</sup></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/08_Guest.png" alt=""> Gäste:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/07_Bed.png" alt=""> Betten:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/09_WLAN.png" alt=""> WLAN:
+                                                    NEIN</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 pt-4">
+                                        <a href="single_apartment.html" class="btn" type="button"><sub>ab</sub>119
+                                            <sup>CHF</sup></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-15-1199 px-5 mb-5">
+                            <div class="card">
+                                <div class="responsive1">
+                                    <div>
+                                        <div class="img-15 card-img-top">
+                                            <img class="card-img-top" src="img/02_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-115">
+                                            <img class="card-img-top" src="img/03_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-5111">
+                                            <img class="card-img-top" src="img/04_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="star">
+                                    <div>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="p1">5.0</p>
+                                    <p class="p2">(15)</p>
+                                </div>
+                                <div class="card-body pb-0 px-0">
+                                    <div class="px-3">
+                                        <h5 class="card-title">Swiss Star Sihlfeld</h5>
+                                        <p class="card-text">Dubsstrasse 30, 8003 Zürich</p>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/06_m2.png" alt=""> Fläche:
+                                                    130m<sup>2</sup></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/08_Guest.png" alt=""> Gäste:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/07_Bed.png" alt=""> Betten:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/09_WLAN.png" alt=""> WLAN:
+                                                    NEIN</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 pt-4">
+                                        <a href="single_apartment.html" class="btn" type="button"><sub>ab</sub>119
+                                            <sup>CHF</sup></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 px-15-1199 px-5 mb-5">
+                            <div class="card">
+                                <div class="responsive1">
+                                    <div>
+                                        <div class="img-15 card-img-top">
+                                            <img class="card-img-top" src="img/02_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-115">
+                                            <img class="card-img-top" src="img/03_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-5111">
+                                            <img class="card-img-top" src="img/04_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="star">
+                                    <div>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="p1">5.0</p>
+                                    <p class="p2">(15)</p>
+                                </div>
+                                <div class="card-body pb-0 px-0">
+                                    <div class="px-3">
+                                        <h5 class="card-title">Swiss Star Sihlfeld</h5>
+                                        <p class="card-text">Dubsstrasse 30, 8003 Zürich</p>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/06_m2.png" alt=""> Fläche:
+                                                    130m<sup>2</sup></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/08_Guest.png" alt=""> Gäste:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/07_Bed.png" alt=""> Betten:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/09_WLAN.png" alt=""> WLAN:
+                                                    NEIN</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 pt-4">
+                                        <a href="single_apartment.html" class="btn" type="button"><sub>ab</sub>119
+                                            <sup>CHF</sup></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-15-1199 px-5 mb-5">
+                            <div class="card">
+                                <div class="responsive1">
+                                    <div>
+                                        <div class="img-15 card-img-top">
+                                            <img class="card-img-top" src="img/02_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-115">
+                                            <img class="card-img-top" src="img/03_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-5111">
+                                            <img class="card-img-top" src="img/04_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="star">
+                                    <div>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="p1">5.0</p>
+                                    <p class="p2">(15)</p>
+                                </div>
+                                <div class="card-body pb-0 px-0">
+                                    <div class="px-3">
+                                        <h5 class="card-title">Swiss Star Sihlfeld</h5>
+                                        <p class="card-text">Dubsstrasse 30, 8003 Zürich</p>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/06_m2.png" alt=""> Fläche:
+                                                    130m<sup>2</sup></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/08_Guest.png" alt=""> Gäste:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/07_Bed.png" alt=""> Betten:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/09_WLAN.png" alt=""> WLAN:
+                                                    NEIN</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 pt-4">
+                                        <a href="single_apartment.html" class="btn" type="button"><sub>ab</sub>119
+                                            <sup>CHF</sup></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-15-1199 px-5 mb-5">
+                            <div class="card">
+                                <div class="responsive1">
+                                    <div>
+                                        <div class="img-15 card-img-top">
+                                            <img class="card-img-top" src="img/02_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-115">
+                                            <img class="card-img-top" src="img/03_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="img-5111">
+                                            <img class="card-img-top" src="img/04_Bild.png" alt="Card image cap">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="star">
+                                    <div>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="p1">5.0</p>
+                                    <p class="p2">(15)</p>
+                                </div>
+                                <div class="card-body pb-0 px-0">
+                                    <div class="px-3">
+                                        <h5 class="card-title">Swiss Star Sihlfeld</h5>
+                                        <p class="card-text">Dubsstrasse 30, 8003 Zürich</p>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/06_m2.png" alt=""> Fläche:
+                                                    130m<sup>2</sup></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/08_Guest.png" alt=""> Gäste:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/07_Bed.png" alt=""> Betten:
+                                                    2</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span><img class="card-feature" src="img/09_WLAN.png" alt=""> WLAN:
+                                                    NEIN</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 pt-4">
+                                        <a href="single_apartment.html" class="btn" type="button"><sub>ab</sub>119
+                                            <sup>CHF</sup></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal fade" id="modal-login-register" tabindex="-1" aria-labelledby="register"
+         aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen px-10-768">
+            <div class="modal-content bg-transparent">
+                <div class="container">
+                    <div class="py-4">
+                        <div id="login-register" class="bg-transparent border-0">
+                            <div class="d-flex justify-content-between align-items-center px-4">
+                                <ul class="">
+                                    <li><a href="#tab-login">Login</a></li>
+                                    <li><a href="#tab-registrieren">Registrieren</a></li>
+                                </ul>
+
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div id="tab-login">
+                                <div class="row border-radius-80 bg_secondary">
+                                    <div class="col-lg-6 mt-5 px-4">
+                                        <div class="container">
+                                            <!-- <h3>Login</h3> -->
+                                            <h3 style="font-size:30px; font-family: Montserrat;">Login</h3>
+                                            <!-- <h4>Log dich jetzt ein.</h4> -->
+                                            <p style="font-size:25px; color:#292929; font-family: Montserrat;">Log dich jetzt ein</p>
+                                            <a href="#" class="btn px-0 w-100">
+                                                <div class="d-flex border border-dark border-radius-30 justify-content-center align-items-center py-3">
+                                                    <img class="h-75 pe-3" src="img/34_GoogleLogo.png" alt="">
+                                                    <p class="mb-0" style="font-family:Montserrat">mit Google anmelden</p>
+                                                </div>
+                                            </a>
+                                            <div class="d-flex justify-content-center align-items-center mb-3 pt-5 pb-5">
+                                                <div class="w-75 ms-0" style="height: 0">
+                                                    <div class="border-dark border-0 border-bottom"
+                                                         style="width: 75%"></div>
+                                                </div>
+                                                <div class="w-100"><p class="mb-0 text-center w-100" style="font-size:20px; font-family: Montserrat;">Anmelden mit E-Mail</p>
+                                                </div>
+                                                <div class="w-75 ms-auto" style="height: 0">
+                                                    <div class="border-dark border-0 border-bottom ms-auto"
+                                                         style="width: 75%"></div>
+                                                </div>
+                                            </div>
+
+                                            <form action="">
+                                                <div class="mb-3">
+                                                    <label for="email" class="form-label" style="font-size:25px; font-family: Montserrat;">Email:</label>
+                                                    <input type="email"
+                                                           class="form-control border border-dark border-radius-30 justify-content-center align-items-center px-4 py-3"
+                                                           id="email1" aria-describedby="emailHelp">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="password" class="form-label" style="font-size:25px; font-family: Montserrat;">Password:</label>
+                                                    <input type="password"
+                                                           class="form-control border border-dark border-radius-30 justify-content-center align-items-center px-4 py-3  "
+                                                           id="password1" aria-describedby="emailHelp">
+                                                </div>
+                                                <div class="d-flex justify-content-center">
+                                                    <div class="mb-3 form-check w-100">
+                                                        <input type="checkbox" class="form-check-input"
+                                                               style="border-radius: 0"
+                                                               id="check1">
+                                                        <label class="form-check-label" for="check1" style="font-size:15px; font-family: Montserrat;">Check me out</label>
+                                                    </div>
+                                                    <a href="#" class="text-end w-100 text-decoration-none" style="font-size:15px;font-family: Montserrat;">Passwort
+                                                        vergessen</a>
+                                                </div>
+                                                <button type="submit"
+                                                        class="btn bg_primary w-100 color_secondary border-radius-30 my-3 py-3" style="font-size:20px">
+                                                    Submit
+                                                </button>
+                                                <div class="d-flex">
+                                                    <p class="mb-0 pe-2" style="font-size:15px;font-family: Montserrat;">Noch keinen Account? </p>
+                                                    <a href="#tab-registrieren" style=" font-size:15px; font-family: Montserrat;"> Erstelle jetzt deinen Account</a>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 pe-0 px-0-1199 d-none-992">
+                                        <p class="rightpart" style="font-family:Montserrat !important">Geniessen Sie Ihren Urlaub <br><b> mit Swiss Star </b></p>
+                                        <img class="ps-5 px-0-1199" src="img/33_LoginRegisrierten.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-registrieren">
+                                <div class="row border-radius-80 bg_secondary" style="font-family:Montserrat">
+                                    <div class="col-lg-6 mt-5 px-4">
+                                        <div class="container">
+                                            <h3 style="font-size:30px; font-family: Montserrat;">Jetzt Registrieren</h3>
+                                            <!-- <h4>Entdecke jetzt Swiss Star</h4> -->
+                                           <p style="font-size:25px; color:#292929; font-family: Montserrat;">Entdecke jetzt Swiss Star</p>
+                                            <form action="" class="pt-4">
+
+                                                <div class="mb-3">
+                                                    <label for="username" class="form-label" style="font-size:25px; color:#292929; font-family: Montserrat;">Username:</label>
+                                                    <input type="text"
+                                                           class="form-control border border-dark border-radius-30 justify-content-center align-items-center px-4 py-3"
+                                                           id="username" aria-describedby="emailHelp">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="email" class="form-label" style="font-size:25px; color:#292929; font-family: Montserrat;">Email:</label>
+                                                    <input type="email"
+                                                           class="form-control border border-dark border-radius-30 justify-content-center align-items-center px-4 py-3"
+                                                           id="email" aria-describedby="emailHelp">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="password" class="form-label" style="font-size:25px; color:#292929; font-family: Montserrat;">Password:</label>
+                                                    <input type="password"
+                                                           class="form-control border border-dark border-radius-30 justify-content-center align-items-center px-4 py-3  "
+                                                           id="password" aria-describedby="emailHelp">
+                                                </div>
+                                                <div class="d-flex justify-content-center">
+                                                    <div class="mb-3 form-check w-100">
+                                                        <input type="checkbox" class="form-check-input"
+                                                               style="border-radius: 0"
+                                                               id="exampleCheck1">
+                                                        <label class="form-check-label" for="exampleCheck1" style="font-size:15px; font-family:Montserrat">Ich akzeptiere
+                                                            die
+                                                            AGB's</label>
+                                                    </div>
+                                                </div>
+
+                                                <a href="#" class="btn px-0 w-100 mb-2">
+                                                    <div class="d-flex border border-dark border-radius-30 justify-content-center align-items-center py-3">
+                                                        <img class="h-75 pe-3" src="img/34_GoogleLogo.png" alt="">
+                                                        <p class="mb-0" style="font-family:Montserrat; font-size:18px">mit Google anmelden</p>
+                                                    </div>
+                                                </a>
+
+                                                <button type="submit"
+                                                        class="btn bg_primary w-100 color_secondary border-radius-30 mt-3 mb-3 py-3" style="font-size:20px;font-family:Montserrat">
+                                                    Submit
+                                                </button>
+                                                <div class="d-flex">
+                                                    <p class="mb-0 pe-2" style="font-size:15px;font-family:Montserrat">Noch keinen Account? </p>
+                                                    <a href="#tab-login" style="font-size:15px;font-family:Montserrat">Login</a>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 pe-0 px-0-1199 d-none-992">
+                                        <p class="rightpart" >Geniessen Sie Ihren Urlaub <br><b> mit Swiss Star </b></p>
+                                        <img class="ps-5 px-0-1199" src="img/33_LoginRegisrierten.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="wickedpicker/dist/wickedpicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $('.responsive1').slick({
+            dots: true,
+            infinite: true,
+            arrows: false,
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            // autoplay: true,
+            // autoplaySpeed: 1000,
+        });
+
+    </script>
+
+    <script>
+        $(function () {
+            $("#login-register").tabs();
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#login-register').tabs();
+            $("#login-register>div a[href^='#']").click(function () {
+                var index = $($(this).attr("href")).index() - 1
+                $("#login-register").tabs("option", "active", index);
+                return false
+            })
+        })
+
+
+        // $('#modal-login-register').on('show.bs.modal', function (e) {
+        //
+        //     $("#btn-login").click(function () {
+        //         // $("#tab-login").tabs("option", "active", 1);
+        //         // $("#login-register").tabs("option", "active", index);
+        //         $( "#login-register" ).tabs({ active: '#tab_login' });
+        //         // alert('l')
+        //     });
+        //
+        //     $("#btn-register").click(function () {
+        //         // $("#tab-registrieren").tabs("option", "active", 1);
+        //         $( "#login-register" ).tabs({ active: '#tab-registrieren' });
+        //         // alert('r')
+        //     });
+        //
+        // })
+
+    </script>
+
+</body>
+
+</html>
