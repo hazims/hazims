@@ -28,10 +28,7 @@ if(isset($_POST['add']) || isset($_POST['add_back'])){
     $id = 0;
     if(isset($_POST['add_back'])) $back = true;
 }
-if($action != '' && defined('PMS_DEMO') && PMS_DEMO == 1){
-    $action = '';
-    $_SESSION['msg_error'][] = 'This action is disabled in the demo mode';
-}
+
 
 // Initializations
 $file = array();
