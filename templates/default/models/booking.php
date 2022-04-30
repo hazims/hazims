@@ -20,7 +20,11 @@
     include 'templates/default/models/bootstrap/css/bootstrap.min_2.css';
     include 'templates/default/css/style.css'; ?>
   </style>
-
+<?php 
+$room_id = $_POST["room_id"];
+$date = $_POST["datefilter"];
+ 
+?>
 
   <style>
     hr {
@@ -123,29 +127,101 @@
         <div class="card">
           <div class="responsive1">
             <div>
-              <div class="img-15 card-img-top">
-                <img class="card-img-top" src="<?php echo DOCBASE . 'templates/default/images/02_Bild.png' ?>" alt="Card image cap">
+            <?php
+
+$result_rooms = $pms_db->query('SELECT * FROM pm_room WHERE id= ' . $room_id . '');
+$gest = '0';
+$WLAN = 'Nein';
+$Betten = '0';
+$Flache = '0';
+$Checkin = '';
+$Checkout = '';
+$Price = 0;
+if ($result_rooms->execute() !== false && $pms_db->last_row_count() >= 0) {
+    foreach ($result_rooms as $i => $row) {
+        $hotel_id = $row['id_hotel'];
+        $Price = $row['price'];
+        $descr = $row['descr'];
+        $gest = (string)$row['max_people'];
+        $Flache = (string) $row['Flache'];
+        $Betten = (string)$row['Betten'];
+        if ($row['Checkin'] != null) {
+            $Checkin = (string) $row['Checkin'];
+        }
+
+        $Checkout = (string)$row['Checkout'];
+
+        if ((string) $row['WLAN'] == '1') {
+            (string) $WLAN = 'Ja';
+        }
+    }
+}
+$pms_article_id = '';
+$title_tag = '';
+$page_title = '';
+$address = '';
+$lat = 0;
+$langt = 0;
+$page_subtitle = '';
+$page_alias = '';
+
+$result = $pms_db->query('SELECT * FROM pm_hotel WHERE checked = 1 and id=' . $hotel_id);
+if ($result !== false && $pms_db->last_row_count() == 1) {
+
+    $hotel = $result->fetch(PDO::FETCH_ASSOC);
+
+    $hotel_id = $hotel['id'];
+    $pms_article_id = $hotel_id;
+    $title_tag = $hotel['title'] . ' - ' .  $row['subtitle'];;
+    $page_title = $hotel['title'];
+    $address = $hotel['address'];
+    $lat = $hotel["lat"];
+    $langt = $hotel["lang"];
+}
+$result_room_file = $pms_db->query('SELECT * FROM pm_room_file WHERE id_item = ' . $room_id . ' AND checked = 1 AND lang = ' . PMS_DEFAULT_LANG . ' AND type = \'image\' AND file != \'\' ORDER BY `rank` limit 1 ');
+if ($result_room_file->execute() !== false && $pms_db->last_row_count() >= 0) {
+
+    foreach ($result_room_file as $i => $row) {
+
+        $file_id = $row['id_item'];
+        $filename = $row['file'];
+        $realpath = '';
+
+        $page_img = pms_getUrl(true) . DOCBASE . 'medias/room/medium/' . $file_id . '/' . $filename;
+        $realpath =  DOCBASE . 'medias/room/small/' . $file_id . '/' . $filename;
+        if ($realpath != null) {
+?>
+       
+            <div class="img-15 card-img-top">
+                <img class="card-img-top" src="<?php echo  $realpath; ?>" alt="Card image cap">
               </div>
+<?php
+        }
+    }
+}
+
+?>
+        
             </div>
           </div>
           <div class="card-body pb-0 px-0">
             <div class=" pxy-20">
-              <h5 class="card-title">Swiss Star Tower</h5>
-              <p class="card-text">Friesstrasse 8, 8050 Zürich</p>
+              <h5 class="card-title"><?php echo $title_tag ?></h5>
+              <p class="card-text"><?php echo $address ?></p>
               <hr>
               <div class="row">
                 <div class="col-6 " style="margin-bottom: 15px;">
                   <span><img class="card-feature" src="<?php echo DOCBASE . 'templates/default/images/06_m2.png' ?>" alt=""> Fläche:
-                    130m<sup>2</sup></span>
+                  <?php echo $Flache ?> m<sup>2</sup></span>
                 </div>
                 <div class="col-6" style="margin-bottom: 15px;">
-                  <span><img class="card-feature" src="<?php echo DOCBASE . 'templates/default/images/08_Guest.png' ?>" alt=""> Gäste: 2</span>
+                  <span><img class="card-feature" src="<?php echo DOCBASE . 'templates/default/images/08_Guest.png' ?>" alt=""> Gäste:  <?php echo  $gest ?></span>
                 </div>
                 <div class="col-6">
-                  <span><img class="card-feature" src="<?php echo DOCBASE . 'templates/default/images/07_Bed.png' ?>" alt=""> Betten: 2</span>
+                  <span><img class="card-feature" src="<?php echo DOCBASE . 'templates/default/images/07_Bed.png' ?>" alt=""> Betten: <?php echo  $Betten ?></span>
                 </div>
                 <div class="col-6">
-                  <span><img class="card-feature" src="<?php echo DOCBASE . 'templates/default/images/09_WLAN.png' ?>" alt=""> WLAN: NEIN</span>
+                  <span><img class="card-feature" src="<?php echo DOCBASE . 'templates/default/images/09_WLAN.png' ?>" alt=""> WLAN:  <?php echo $WLAN ?></span>
                 </div>
               </div>
             </div>
@@ -154,6 +230,7 @@
             </div>
           </div>
         </div>
+ 
       </div>
       <div class="col-md-8">
         <h1 style="padding-bottom: 10px;">Buchungsbestätigung </h1>
@@ -161,7 +238,7 @@
                       ?>" method="POST">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Check in & out Datum:</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="">
+            <input type="text" class="form-control" id="exampleInputEmail1" value="<?php echo $date?>" aria-describedby="emailHelp" value="">
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Gäste:</label>
@@ -237,119 +314,74 @@
   </section>
   <section class="container pt-150">
     <h1 style="font-size: 30px; color: #023E8A; font-weight: 400; padding-bottom: 10px;">Verfügbare Apartments</h1>
-    <div class="row verfügbare_apartments">
-      <div class="col-md-4 px-0">
-        <div class="bd-highlight first">
-          <img class="w-100" src="<?php echo DOCBASE . 'templates/default/images/14_Hotel.png' ?>" />
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="bd-highlight second ">
-          <div class="studio">
-            <p class="s_title" style="margin-bottom: 0;">1 BETT APARTMENT</p>
-            <p class="s_para">maximal 2 Personen</p>
-          </div>
-          <div class="nacht">
-            <p style="color: #023e8a; margin-bottom:0">119.- / Nacht</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="bd-highlight third">
-          <p>
-            The self-check-in apartments Swiss Star Tower in Zurich-Oerlikon
-            offer a kitchen, a bathroom and a balcony with a panoramic view in
-            an up-and- coming district for culture, trade shows and...
-          </p>
-          <a href="#apartment_details" data-bs-toggle="modal" class=" btn mb-4 text-decoration-none text-white">mehr Information en</a>
-        </div>
-      </div>
+    <?php
+    $result_rooms_show = $pms_db->query('SELECT * FROM pm_room WHERE   id_hotel= ' . $hotel_id . '  limit 5');
+    if ($result_rooms_show->execute() !== false && $pms_db->last_row_count() >= 0) {
+        foreach ($result_rooms_show as $i => $row) {
+            $Price = $row['price'];
+            $descr = $row['descr'];
+            $gest = (string)$row['max_people'];
+            $descr = (string) $row['descr'];
+            $Betten = (string)$row['Betten'];
+            $room_ids = $row['id'];
+
+    ?>
+            <div class="row verfügbare_apartments">
+                <div class="col-md-4 px-0">
+                    <div class="bd-highlight first">
+                        <?php
+
+                        $result_room_file_show = $pms_db->query('SELECT * FROM pm_room_file WHERE id_item = ' . $room_ids . ' AND checked = 1 AND lang = ' . PMS_DEFAULT_LANG . ' AND type = \'image\' AND file != \'\' ORDER BY `rank` limit 1 ');
+                        if ($result_room_file_show->execute() !== false && $pms_db->last_row_count() >= 0) {
+
+                            foreach ($result_room_file_show as $i => $row) {
+
+                                $file_id = $row['id_item'];
+                                $filename = $row['file'];
+                             //   $realpaths = '';
+
+                                $page_imgs = pms_getUrl(true) . DOCBASE . 'medias/room/medium/' . $file_id . '/' . $filename;
+                                $realpath =  DOCBASE . 'medias/room/small/' . $file_id . '/' . $filename;
+                                  
+                        ?>
+                                <img class="w-100" src="<?php echo  $realpath ?>"  alt="Card image cap" />
+                        <?php
+
+
+                            }
+                        } ?>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="bd-highlight second ">
+                        <div class="studio">
+                            <p class="s_title" style="margin-bottom: 0;">1 BETT APARTMENT</p>
+                            <p class="s_para">maximal <?php echo $Betten ?> Personen</p>
+                        </div>
+                        <div class="nacht">
+                            <p style="color: #023e8a; margin-bottom: 0;"><?php echo $Price ?>.- / Nacht</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="bd-highlight third">
+                        <p>
+                            <?php   $stringCut = substr($descr, 0, 75); echo  $stringCut . ' ...' ?>
+                        </p>
+                       
+                 <a href="#apartment_details"  data-bs-toggle="modal" class=" btn  text-decoration-none text-white">mehr Information en</a> 
+                        
+                    </div>
+                </div>
+            </div>
+    <?php
+        }
+    }
+    ?>
+
     </div>
-    <div class="row verfügbare_apartments">
-      <div class="col-md-4 px-0">
-        <div class="bd-highlight first">
-          <img class="w-100" src="<?php echo DOCBASE . 'templates/default/images/14_Hotel.png' ?>" />
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="bd-highlight second ">
-          <div class="studio">
-            <p class="s_title" style="margin-bottom: 0;">STUDIO</p>
-            <p class="s_para">maximal 2 Personen</p>
-          </div>
-          <div class="nacht">
-            <p style="color: #023e8a">139.- / Nacht</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="bd-highlight third">
-          <p>
-            The self-check-in apartments Swiss Star Tower in Zurich-Oerlikon
-            offer a kitchen, a bathroom and a balcony with a panoramic view in
-            an up-and- coming district for culture, trade shows and...
-          </p>
-          <a href="#apartment_details" data-bs-toggle="modal" class=" btn mb-4 text-decoration-none text-white">mehr Information en</a>
-        </div>
-      </div>
-    </div>
-    <div class="row verfügbare_apartments">
-      <div class="col-md-4 px-0">
-        <div class="bd-highlight first">
-          <img class="w-100" src="<?php echo DOCBASE . 'templates/default/images/14_Hotel.png' ?>" />
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="bd-highlight second ">
-          <div class="studio">
-            <p class="s_title" style="margin-bottom: 0;">APARTMENT</p>
-            <p class="s_para">maximal 2 Personen</p>
-          </div>
-          <div class="nacht">
-            <p style="color: #023e8a">149.- / Nacht</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="bd-highlight third">
-          <p>
-            The self-check-in apartments Swiss Star Tower in Zurich-Oerlikon
-            offer a kitchen, a bathroom and a balcony with a panoramic view in
-            an up-and- coming district for culture, trade shows and...
-          </p>
-          <a href="#apartment_details" data-bs-toggle="modal" class=" btn mb-4 text-decoration-none text-white">mehr Information en</a>
-        </div>
-      </div>
-    </div>
-    <div class="row verfügbare_apartments">
-      <div class="col-md-4 px-0">
-        <div class="bd-highlight first">
-          <img class="w-100" src="<?php echo DOCBASE . 'templates/default/images/14_Hotel.png' ?>" />
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="bd-highlight second ">
-          <div class="studio">
-            <p class="s_title" style="margin-bottom: 0;">2 BETT APARTMENT</p>
-            <p class="s_para">maximal 2 Personen</p>
-          </div>
-          <div class="nacht">
-            <p style="color: #023e8a">189.- / Nacht</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="bd-highlight third">
-          <p>
-            The self-check-in apartments Swiss Star Tower in Zurich-Oerlikon
-            offer a kitchen, a bathroom and a balcony with a panoramic view in
-            an up-and- coming district for culture, trade shows and...
-          </p>
-          <a href="#apartment_details" data-bs-toggle="modal" class=" btn mb-4 text-decoration-none text-white">mehr Information en</a>
-        </div>
-      </div>
-    </div>
-  </section>
+</section>
   <div class="modal fade" id="modal-login-register" tabindex="-1" aria-labelledby="register" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen px-10-768">
       <div class="modal-content bg-transparent">
@@ -482,66 +514,104 @@
   </div>
 
   <div class="modal fade" id="apartment_details" tabindex="-1" aria-labelledby="login" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen px-10-768">
-      <div class="modal-content bg-transparent">
+
+<div class="modal-dialog modal-fullscreen px-10-768">
+    <div class="modal-content bg-transparent">
         <div class="container mt-5">
-          <div class="w-100 d-flex justify-content-end pe-4 pb-3">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="row border-radius-80 bg_secondary">
-            <div class="container" id="apa_details">
-              <div class="row apa">
-                <div class="col-md-4">
-                  <img style="width: 100%; object-fit: cover;" src="<?php echo DOCBASE . 'templates/default/images/38_Apartment.png' ?>" alt="">
-                  <h3 class="pt-4">2 BETTEN APARTMENT</h3>
-                  <p class="max_per">maximal 4 Personen</p>
-                  <h2>189.- / Nacht</h2>
-                </div>
-                <div class="col-md-8 ps-5 pe-5 ps-0 pe-0">
-                  <div class="row ps-4 pe-4">
-                    <div class="col-md-12 pb-100 pb-10 ">
-                      <p>The self-check-in apartments Swiss Star Tower in Zurich-Oerlikon
-                        offer a kitchen, a bathroom and a balcony with a panoramic view
-                        in an up-and-coming district for culture, trade shows and sports.
-                        Friendly and appealingly furnished apartments, fair rates and a perfect
-                        housekeeping service guarantee a pleasant stay. The Swiss Star Tower
-                        apartments offer leisure and business travelers alike relaxation and
-                        tranquility in apartments with great infrastructure and facilities.
-                        Oerlikon is a great choice for travellers interested in convenient public
-                        transport, city trips and shopping.</p>
-                    </div>
-                    <div class="col-12">
-                      <p style="font-size: 18px; font-weight:600; color: #5A5A5A;">Ausstattung</p>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                      <p>Heizung</p>
-                      <p>Badezimmer</p>
-                      <p>Haartrockner</p>
-                      <p>TV</p>
-                      <p>Privates WC </p>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                      <p>Küchenutensilien</p>
-                      <p>Mikrowelle</p>
-                      <p>Herd</p>
-                      <p>Kühlschrank</p>
-                      <p>Kostenloses WLAN</p>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                      <p>Nicht Raucher Zimmer</p>
-                      <p>Handtücher</p>
-                      <p>Dusche</p>
-                      <p>Doppelbett</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="w-100 d-flex justify-content-end pe-4 pb-3">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-          </div>
+
+            <div class="row border-radius-80 bg_secondary">
+                <div class="container" id="apa_details">
+                    <div class="row apa">
+                        <div class="col-md-4">
+                            <?php
+                                
+                                $result_rooms_details = $pms_db->query('SELECT * FROM pm_room WHERE   id=7 limit 4');
+                                if ($result_rooms_details->execute() !== false && $pms_db->last_row_count() >= 0) {
+                                    foreach ($result_rooms_details as $i => $row) {
+                                        $Price = $row['price'];
+                                        $descr = $row['descr'];
+                                        $facilities = $row['facilities'];
+                                        $max_people = (string) $row['max_people'];
+                                        $Betten = (string)$row['Betten'];
+                                        $room_ids = $row['id'];
+                                    }}
+                            
+                            $result_room_file_details = $pms_db->query('SELECT * FROM pm_room_file WHERE id_item = 7 AND checked = 1 AND lang = ' . PMS_DEFAULT_LANG . ' AND type = \'image\' AND file != \'\' ORDER BY `rank` limit 1 ');
+                            if ($result_room_file_details->execute() !== false && $pms_db->last_row_count() >= 0) {
+
+                                foreach ($result_room_file_details as $i => $row) {
+
+                                    $file_id = $row['id_item'];
+                                    $filename = $row['file'];
+                                 
+                                    $realpath_details =  DOCBASE . 'medias/room/small/' . $file_id . '/' . $filename;
+                                     
+                                   
+                            ?>
+                                                 <img class="w-100" src="<?php echo  $realpath_details ?>"  alt="Card image cap" />
+                                  
+                      <?php
+
+
+                                }
+                            } ?>
+                            
+                            <h3 class=" pt-4">2 BETTEN APARTMENT</h3>
+                                    <p class="max_per">maximal <?php echo $max_people ?> Personen</p>
+                           
+                                    <h2><?php echo $Price ?> - / Nacht</h2>
+                        </div>
+                        <div class="col-md-8 ps-5 pe-5 ps-0 pe-0">
+                            <div class="row ps-4 pe-4">
+                                <div class="col-md-12 pb-100 pb-10 ">
+                                    <p><?php echo $descr;  ?> </p>
+                                </div>
+                                <div class="col-12">
+                                    <p style="font-size: 18px; font-weight:600; color: #5A5A5A;">Ausstattung</p>
+                                </div>
+                                <?php 
+                                      $result_facilities = $pms_db->query('SELECT * FROM pm_facility WHERE   id in (' .$facilities . ')  limit 4');
+                                      if ($result_facilities->execute() !== false && $pms_db->last_row_count() >= 0) {
+                                          foreach ($result_facilities as $i => $row) {
+                                              $name_fcilities=$row["name"];
+                                ?>
+                                <div class="col-sm-6 col-md-4">
+                                    <p><?php echo $name_fcilities ?></p>
+                             <!--        <p>Badezimmer</p>
+                                    <p>Haartrockner</p>
+                                    <p>TV</p>
+                                    <p>Privates WC </p> -->
+                                </div>
+                                <?php
+
+                                          }
+                                        }
+                                ?>
+                                <!-- <div class="col-sm-6 col-md-4">
+                                    <p>Küchenutensilien</p>
+                                    <p>Mikrowelle</p>
+                                    <p>Herd</p>
+                                    <p>Kühlschrank</p>
+                                    <p>Kostenloses WLAN</p>
+                                </div>
+                                <div class="col-sm-6 col-md-4">
+                                    <p>Nicht Raucher Zimmer</p>
+                                    <p>Handtücher</p>
+                                    <p>Dusche</p>
+                                    <p>Doppelbett</p>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
+</div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

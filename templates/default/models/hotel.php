@@ -139,7 +139,7 @@ function getStars($rating)
 
   // Fill the empty stars
   for ($i = (5 - $rating); $i >= 1; $i--)
-    echo '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;';
+    echo '<i class="fa fa-star-o" aria-hidden="true" style="color: #F1BD6C"></i>&nbsp;';
 }
 ?>
 <?php
@@ -147,7 +147,7 @@ require(pms_getFromTemplate('common/start_site_header.php', false));
 if ($article_alias == '') pms_err404();
 
 $room_id = $_POST["room_id"];
-
+echo $room_id;
 $result_rooms = $pms_db->query('SELECT * FROM pm_room WHERE id= ' . $room_id . '');
 $gest = '0';
 $WLAN = 'Nein';
@@ -351,7 +351,7 @@ pms_check_URI(DOCBASE . $page_alias);
                             <div class="collapse" id="anzahl_personen">
                                 <div class="card card-body position-absolute" id="card_test">
                                     <div class="d-flex">
-                                        <input type="text" readonly id="spinner-1" value="0">
+                                        <input type="text" name="date" readonly id="spinner-1" value="0">
                                         <div class="d-flex bbtn ms-4" style="padding-top: 5px; height: 40px; padding-bottom: 5px; background-color: #FFFFFF;">
                                             <a role="button" class="py-0 my-0 px-3 d-flex align-items-center py-0"><img id="stepDown-1" src="img/Pfad 82.png " style="padding-right: 0;" alt="remove"></a>
                                             <a role="button" class="py-0 my-0 px-3 d-flex align-items-center py-0"><img id="stepUp-1" src="img/Pfad 81.png " style="padding-right: 0;" alt="add"></a>
@@ -362,7 +362,7 @@ pms_check_URI(DOCBASE . $page_alias);
                                     <div class="hr mb-4"></div>
 
                                     <div class="d-flex">
-                                        <input type="text" readonly id="spinner-2" value="0">
+                                        <input type="text"  name="date' readonly id="spinner-2" value="0">
                                         <div class="d-flex bbtn ms-4" style="padding-top: 5px; height: 40px; padding-bottom: 5px; background-color: #FFFFFF;">
                                             <a role="button" class="py-0 my-0 px-3 d-flex align-items-center py-0"><img id="stepDown-2" src="img/Pfad 82.png " style="padding-right: 0;" alt="remove"></a>
                                             <a role="button" class="py-0 my-0 px-3 d-flex align-items-center py-0"><img id="stepUp-2" src="img/Pfad 81.png " style="padding-right: 0;" alt="add"></a>
@@ -373,11 +373,12 @@ pms_check_URI(DOCBASE . $page_alias);
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="text-decoration-none text-white">
+                        <input type="text" name="room_id" value="<?php echo $room_id ?>" hidden />
+                      <!--   <a href="#" class="text-decoration-none text-white"> -->
                             <button class="btn btn-primary" type="submit">Buche
                                 <i class="fa fa-check" aria-hidden="true"></i>
                             </button>
-                        </a>
+                     <!--    </a> -->
                     </form>
                 </div>
             </div>
@@ -419,13 +420,13 @@ pms_check_URI(DOCBASE . $page_alias);
 
                                 $file_id = $row['id_item'];
                                 $filename = $row['file'];
-                                $realpaths = '';
+                             //   $realpaths = '';
 
                                 $page_imgs = pms_getUrl(true) . DOCBASE . 'medias/room/medium/' . $file_id . '/' . $filename;
-                                $realpaths =  DOCBASE . 'medias/room/small/' . $file_id . '/' . $filename;
-
+                                $realpath =  DOCBASE . 'medias/room/small/' . $file_id . '/' . $filename;
+                                  
                         ?>
-                                <img class="w-100" src="<?php echo  $realpaths; ?>" />
+                                <img class="w-100" src="<?php echo  $realpath ?>"  alt="Card image cap" />
                         <?php
 
 
@@ -448,10 +449,12 @@ pms_check_URI(DOCBASE . $page_alias);
                 <div class="col-md-5">
                     <div class="bd-highlight third">
                         <p>
-                            <?php echo $descr ?>
+                            <?php   $stringCut = substr($descr, 0, 75); echo  $stringCut . ' ...' ?>
                         </p>
                        
-                 <a href="#apartment_details" data-bs-toggle="modal" class=" btn  text-decoration-none text-white">mehr Information en</a> 
+                 <a 
+                 
+                 href="#apartment_details"  data-bs-toggle="modal" class=" btn  text-decoration-none text-white">mehr Information en</a> 
                         
                     </div>
                 </div>
@@ -512,12 +515,12 @@ pms_check_URI(DOCBASE . $page_alias);
       foreach ($results1->businesses as $key) : ?>
                 <div class="reviews d-flex justify-content-between">
                     <div class="res_name">
-                        <p>><?= $key->name ?></span></p>
+                        <p><?= $key->name ?></span></p>
                     </div>
                     <div class="stars">
                     <?= getStars($key->rating);
                          ?>
-                           <span><?= $key->rating ?></span>
+                     
                     </div>
                   
                 </div>
@@ -537,12 +540,12 @@ pms_check_URI(DOCBASE . $page_alias);
           foreach ($results1->businesses as $key) : ?>
                 <div class="reviews d-flex justify-content-between">
                     <div class="res_name">
-                        <p>><?= $key->name ?></span></p>
+                        <p><?= $key->name ?></span></p>
                     </div>
                     <div class="stars">
                     <?= getStars($key->rating);
                          ?>
-                           <span><?= $key->rating ?></span>
+                           
                     </div>
                   
                 </div>
@@ -563,12 +566,12 @@ pms_check_URI(DOCBASE . $page_alias);
                 foreach ($results1->businesses as $key) : ?>
                 <div class="reviews d-flex justify-content-between">
                     <div class="res_name">
-                        <p>><?= $key->name ?></span></p>
+                        <p><?= $key->name ?></span></p>
                     </div>
                     <div class="stars">
                     <?= getStars($key->rating);
                          ?>
-                           <span><?= $key->rating ?></span>
+                          
                     </div>
                   
                 </div>
@@ -819,6 +822,7 @@ pms_check_URI(DOCBASE . $page_alias);
 </div>
 
 <div class="modal fade" id="apartment_details" tabindex="-1" aria-labelledby="login" aria-hidden="true">
+
     <div class="modal-dialog modal-fullscreen px-10-768">
         <div class="modal-content bg-transparent">
             <div class="container mt-5">
@@ -831,20 +835,32 @@ pms_check_URI(DOCBASE . $page_alias);
                         <div class="row apa">
                             <div class="col-md-4">
                                 <?php
-                                $result_room_file_details = $pms_db->query('SELECT * FROM pm_room_file WHERE id_item = ' . $room_id . ' AND checked = 1 AND lang = ' . PMS_DEFAULT_LANG . ' AND type = \'image\' AND file != \'\' ORDER BY `rank` limit 1 ');
+                                    
+                                    $result_rooms_details = $pms_db->query('SELECT * FROM pm_room WHERE   id=7 limit 4');
+                                    if ($result_rooms_details->execute() !== false && $pms_db->last_row_count() >= 0) {
+                                        foreach ($result_rooms_details as $i => $row) {
+                                            $Price = $row['price'];
+                                            $descr = $row['descr'];
+                                            $facilities = $row['facilities'];
+                                            $max_people = (string) $row['max_people'];
+                                            $Betten = (string)$row['Betten'];
+                                            $room_ids = $row['id'];
+                                        }}
+                                
+                                $result_room_file_details = $pms_db->query('SELECT * FROM pm_room_file WHERE id_item = 7 AND checked = 1 AND lang = ' . PMS_DEFAULT_LANG . ' AND type = \'image\' AND file != \'\' ORDER BY `rank` limit 1 ');
                                 if ($result_room_file_details->execute() !== false && $pms_db->last_row_count() >= 0) {
 
                                     foreach ($result_room_file_details as $i => $row) {
 
                                         $file_id = $row['id_item'];
                                         $filename = $row['file'];
-                                        $realpath = '';
-
-                                        $page_img = pms_getUrl(true) . DOCBASE . 'medias/room/medium/' . $file_id . '/' . $filename;
-                                        $realpath =  DOCBASE . 'medias/room/small/' . $file_id . '/' . $filename;
+                                     
+                                        $realpath_details =  DOCBASE . 'medias/room/small/' . $file_id . '/' . $filename;
+                                         
+                                       
                                 ?>
-                                        <img class="w-100" src="<?php echo  $realpath; ?>" />
-                                        <img style="width: 100%; object-fit: cover;" src="<?php echo  $realpath; ?> alt="">
+                                                     <img class="w-100" src="<?php echo  $realpath_details ?>"  alt="Card image cap" />
+                                      
                           <?php
 
 
@@ -852,34 +868,37 @@ pms_check_URI(DOCBASE . $page_alias);
                                 } ?>
                                 
                                 <h3 class=" pt-4">2 BETTEN APARTMENT</h3>
-                                        <p class="max_per">maximal 4 Personen</p>
-                                        <h2>189.- / Nacht</h2>
+                                        <p class="max_per">maximal <?php echo $max_people ?> Personen</p>
+                               
+                                        <h2><?php echo $Price ?> - / Nacht</h2>
                             </div>
                             <div class="col-md-8 ps-5 pe-5 ps-0 pe-0">
                                 <div class="row ps-4 pe-4">
                                     <div class="col-md-12 pb-100 pb-10 ">
-                                        <p>The self-check-in apartments Swiss Star Tower in Zurich-Oerlikon
-                                            offer a kitchen, a bathroom and a balcony with a panoramic view
-                                            in an up-and-coming district for culture, trade shows and sports.
-                                            Friendly and appealingly furnished apartments, fair rates and a perfect
-                                            housekeeping service guarantee a pleasant stay. The Swiss Star Tower
-                                            apartments offer leisure and business travelers alike relaxation and
-                                            tranquility in apartments with great infrastructure and facilities.
-                                            Oerlikon is a great choice for travellers interested in convenient
-                                            public
-                                            transport, city trips and shopping.</p>
+                                        <p><?php echo $descr;  ?> </p>
                                     </div>
                                     <div class="col-12">
                                         <p style="font-size: 18px; font-weight:600; color: #5A5A5A;">Ausstattung</p>
                                     </div>
+                                    <?php 
+                                          $result_facilities = $pms_db->query('SELECT * FROM pm_facility WHERE   id in (' .$facilities . ')  limit 4');
+                                          if ($result_facilities->execute() !== false && $pms_db->last_row_count() >= 0) {
+                                              foreach ($result_facilities as $i => $row) {
+                                                  $name_fcilities=$row["name"];
+                                    ?>
                                     <div class="col-sm-6 col-md-4">
-                                        <p>Heizung</p>
-                                        <p>Badezimmer</p>
+                                        <p><?php echo $name_fcilities ?></p>
+                                 <!--        <p>Badezimmer</p>
                                         <p>Haartrockner</p>
                                         <p>TV</p>
-                                        <p>Privates WC </p>
+                                        <p>Privates WC </p> -->
                                     </div>
-                                    <div class="col-sm-6 col-md-4">
+                                    <?php
+
+                                              }
+                                            }
+                                    ?>
+                                    <!-- <div class="col-sm-6 col-md-4">
                                         <p>Küchenutensilien</p>
                                         <p>Mikrowelle</p>
                                         <p>Herd</p>
@@ -891,7 +910,7 @@ pms_check_URI(DOCBASE . $page_alias);
                                         <p>Handtücher</p>
                                         <p>Dusche</p>
                                         <p>Doppelbett</p>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
